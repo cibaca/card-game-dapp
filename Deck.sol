@@ -25,11 +25,17 @@ contract Deck{
     }
 
     function shuffleDeck() public{
-
+        for(int i=0; i<52; i++){
+            uint shuffle = randomize(52);
+            Card temp = cards[uint(i)];
+            cards[uint(i)] = cards[shuffle];
+            cards[shuffle] = temp;
+        }
+        top = 0;
     }
 
     function randomize(uint mod) private view returns(uint){
         return uint(keccak256(abi.encodePacked(block.timestamp,block.difficulty, 
-        msg.sender))) % mod;
+        msg.sender))) % mod; 
     }
 }
