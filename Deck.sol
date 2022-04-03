@@ -19,7 +19,7 @@ contract Deck{
         }
     }
 
-    function deal() public returns(Card){
+    function deal() public view returns(Card){
         require(top<52);
         return cards[top++];
     }
