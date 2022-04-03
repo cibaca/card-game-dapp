@@ -93,7 +93,7 @@ contract cardgame is ReentrancyGuard {
 
 
     // Function for verifying the answer for quesiton two. 
-    function answerQuesetionTwo(string calldata overUnder) public 
+    function answerQuesetionTwo(string calldata overUnder) public view  
     {
         require(keccak256(abi.encodePacked((overUnder))) == keccak256(abi.encodePacked(("over")))
         || keccak256(abi.encodePacked((overUnder))) == keccak256(abi.encodePacked(("under"))));
@@ -103,7 +103,7 @@ contract cardgame is ReentrancyGuard {
 
 
     // Function for verifying the answer for quesiton three.
-    function answerQuestionThree(bool boolGuess) public 
+    function answerQuestionThree(bool boolGuess) public view
     {
         //check case sensitivity 
 
@@ -113,7 +113,7 @@ contract cardgame is ReentrancyGuard {
     }
 
     // Function for verifying the answer for quesiton four.
-    function answerQuestionFour(string calldata suiteGuess) public 
+    function answerQuestionFour(string calldata suiteGuess) public view
     {
         require(keccak256(abi.encodePacked((suiteGuess))) == keccak256(abi.encodePacked(("club")))
         || keccak256(abi.encodePacked((suiteGuess))) == keccak256(abi.encodePacked(("diamond")))
