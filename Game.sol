@@ -133,8 +133,7 @@ contract cardgame is ReentrancyGuard {
     {
         require(keccak256(abi.encodePacked((colorGuess))) == keccak256(abi.encodePacked(("red")))
         || keccak256(abi.encodePacked((colorGuess))) == keccak256(abi.encodePacked(("black"))));
-        randomSuite();
-        //randomColor();
+       
 
 
         Player memory player = playerAccounts[msg.sender] ;
