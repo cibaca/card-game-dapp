@@ -123,12 +123,10 @@ contract cardgame is ReentrancyGuard {
     {
         //check case sensitivity 
 
-        require(keccak256(abi.encodePacked((boolGuess))) == keccak256(abi.encodePacked(("yes")))
-        || keccak256(abi.encodePacked((boolGuess))) == keccak256(abi.encodePacked(("no"))));
-        
-        
-        //the answrer is hard codded for testing purposes
-        if (keccak256(abi.encodePacked((boolGuess))) == keccak256(abi.encodePacked(("yes")))) 
+        require(keccak256(abi.encodePacked((boolGuess))) == keccak256(abi.encodePacked((true)))
+        || keccak256(abi.encodePacked((boolGuess))) == keccak256(abi.encodePacked((false))));
+
+         if (keccak256(abi.encodePacked((boolGuess))) == keccak256(abi.encodePacked((true)))) 
         {
            winnings += 1;
            console.log ('Correct answer, proceed to the next question');
