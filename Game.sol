@@ -24,13 +24,7 @@ contract cardgame is ReentrancyGuard {
      playerAddress = "test";
  }
 
-
-
     //list of answers to each question
-
-   
-    
-
 
 
     struct Player {
@@ -62,8 +56,8 @@ contract cardgame is ReentrancyGuard {
     event QuestionOne(string firstQuestion);
 
 
-    function initiateGame(uint256 _bid) public {
-    
+    function initiateGame(uint256 _bid) public 
+    {
         require(msg.sender != address(0));
         require(_bid > 0);
         require(playerAccounts[msg.sender].state == GameState.NO_GAME);
@@ -77,10 +71,9 @@ contract cardgame is ReentrancyGuard {
     }
 
 
-
-    function answerQuestionOne(string calldata colorGuess) public {
-       
-
+    // Function for verifying the answer for quesiton one.
+    function answerQuestionOne(string calldata colorGuess) public 
+    {
         require(keccak256(abi.encodePacked((colorGuess))) == keccak256(abi.encodePacked(("red")))
         || keccak256(abi.encodePacked((colorGuess))) == keccak256(abi.encodePacked(("black"))));
         //let card; // Get card from top of deck
@@ -91,47 +84,50 @@ contract cardgame is ReentrancyGuard {
 
         // }
 
-        if (
-            keccak256(abi.encodePacked((colorGuess))) == keccak256(abi.encodePacked(("red")))) {
-player.winnings += 1;
+        if (keccak256(abi.encodePacked((colorGuess))) == keccak256(abi.encodePacked(("red")))) 
+        {
+           player.winnings += 1;
         }
-}
+    }
 
-    
 
-    function answerQuesetionTwo(string calldata overUnder) public {
+
+    // Function for verifying the answer for quesiton two. 
+    function answerQuesetionTwo(string calldata overUnder) public 
+    {
         require(keccak256(abi.encodePacked((overUnder))) == keccak256(abi.encodePacked(("over")))
         || keccak256(abi.encodePacked((overUnder))) == keccak256(abi.encodePacked(("under"))));
         
 
     }
 
-    function answerQuestionThree(bool boolGuess) public {
+
+    // Function for verifying the answer for quesiton three.
+    function answerQuestionThree(bool boolGuess) public 
+    {
         //check case sensitivity 
 
         require(keccak256(abi.encodePacked((boolGuess))) == keccak256(abi.encodePacked(("yes")))
         || keccak256(abi.encodePacked((boolGuess))) == keccak256(abi.encodePacked(("no"))));
-        
-    
-    
 
     }
 
-    function answerQuestionFour(string calldata suiteGuess) public {
-
-
- require(keccak256(abi.encodePacked((suiteGuess))) == keccak256(abi.encodePacked(("club")))
+    // Function for verifying the answer for quesiton four.
+    function answerQuestionFour(string calldata suiteGuess) public 
+    {
+        require(keccak256(abi.encodePacked((suiteGuess))) == keccak256(abi.encodePacked(("club")))
         || keccak256(abi.encodePacked((suiteGuess))) == keccak256(abi.encodePacked(("diamond")))
         || keccak256(abi.encodePacked((suiteGuess))) == keccak256(abi.encodePacked(("spade")))
         || keccak256(abi.encodePacked((suiteGuess))) == keccak256(abi.encodePacked(("heart")))
-        );
-    
-        
+        );    
     }
 
 
 
 }
+
+
+
 
 
 
