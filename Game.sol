@@ -80,15 +80,15 @@ contract cardgame is ReentrancyGuard {
         uint randomHash = uint(keccak256(abi.encodePacked(block.timestamp)));
         uint indicator = randomHash%13;
         if (indicator < 11) {
-            suite = (string) indicator;
+            rank = (string) indicator;
         } else if (indicator == 11)
-            suite = 'J';
+            rank = 'J';
         } else if (indicator == 12) 
-            suite = 'Q';
+            rank = 'Q';
         } else if (indicator == 13)
-            suite = 'K';
+            rank = 'K';
         } else {
-            suite = 'A';
+            rank = 'A';
         }
     } 
 
