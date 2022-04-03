@@ -83,7 +83,7 @@ contract cardgame is ReentrancyGuard {
     string color;
     
     //Random number generators
-    function randomValue() internal {
+    function randomValue() public {
         uint random = uint(keccak256(abi.encodePacked(block.timestamp)));
         uint indicator = random%13;
         if (indicator < 10) {
@@ -97,9 +97,11 @@ contract cardgame is ReentrancyGuard {
         } else {
             rank = 'A';
         }
+
+        console.log('The correct canswer for rank is: ', rank);
     } 
 
-    function randomSuite() internal  {
+    function randomSuite() public  {
         uint random = uint(keccak256(abi.encodePacked(block.timestamp)));
         uint indicator = random%4;
         if (indicator == 0) {
@@ -111,15 +113,19 @@ contract cardgame is ReentrancyGuard {
         } else {
             suite = 'clubs';
         }
+
+        console.log('The correct canswer for suite is: ', suite);
     } 
 
-    function randomColor() internal {
+    function randomColor() public {
         if (keccak256(abi.encodePacked((suite))) == keccak256(abi.encodePacked(("hearts"))) || keccak256(abi.encodePacked((suite))) == keccak256(abi.encodePacked(("diamonds")))) {
             color = 'red';
         } else {
             color = 'black';
         }
+        console.log('The correct canswer for color is: ', color);
     }
+     
 
 
     // Function for verifying the answer for quesiton one.
@@ -128,8 +134,8 @@ contract cardgame is ReentrancyGuard {
         require(keccak256(abi.encodePacked((colorGuess))) == keccak256(abi.encodePacked(("red")))
         || keccak256(abi.encodePacked((colorGuess))) == keccak256(abi.encodePacked(("black"))));
         randomSuite();
-        randomColor();
-        
+        //randomColor();
+
 
         Player memory player = playerAccounts[msg.sender] ;
         
@@ -155,7 +161,7 @@ contract cardgame is ReentrancyGuard {
         require(keccak256(abi.encodePacked((overUnder))) == keccak256(abi.encodePacked(("over")))
         || keccak256(abi.encodePacked((overUnder))) == keccak256(abi.encodePacked(("under"))));
 
-         if (keccak256(abi.encodePacked((overUnder))) == keccak256(abi.encodePacked(("over")))) 
+         if (keccak256(abi.encodePacked((overUnder))) == keccak256(abi.encodePacked((rank)))) 
         {
            winnings += 1;
            console.log ('Correct answer, you earned +1, now your total winning is: ', winnings, 
@@ -198,7 +204,7 @@ contract cardgame is ReentrancyGuard {
         || keccak256(abi.encodePacked((suiteGuess))) == keccak256(abi.encodePacked(("heart")))
         );    
 
-        if (keccak256(abi.encodePacked((suiteGuess))) == keccak256(abi.encodePacked(("diamond")))) 
+        if (keccak256(abi.encodePacked((suiteGuess))) == keccak256(abi.encodePacked((suite)))) 
         {
            winnings += 1;
            console.log ('Correct answer, you earned +1, now your final winning is: ', winnings, 
