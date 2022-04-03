@@ -77,15 +77,15 @@ contract cardgame is ReentrancyGuard {
     
     //Random number generators
     function randomValue() {
-        uint randomHash = uint(keccak256(abi.encodePacked(block.timestamp)));
-        uint indicator = randomHash%13;
-        if (indicator < 11) {
-            rank = (string) indicator;
-        } else if (indicator == 11)
+        uint random = uint(keccak256(abi.encodePacked(block.timestamp)));
+        uint indicator = random%13;
+        if (indicator < 10) {
+            rank = string(indicator);
+        } else if (indicator == 10)
             rank = 'J';
-        } else if (indicator == 12) 
+        } else if (indicator == 11) 
             rank = 'Q';
-        } else if (indicator == 13)
+        } else if (indicator == 12)
             rank = 'K';
         } else {
             rank = 'A';
@@ -93,8 +93,8 @@ contract cardgame is ReentrancyGuard {
     } 
 
     function randomSuite()  {
-        uint randomHash = uint(keccak256(abi.encodePacked(block.timestamp)));
-        uint indicator = randomHash%4;
+        uint random = uint(keccak256(abi.encodePacked(block.timestamp)));
+        uint indicator = random%4;
         if (indicator == 0) {
             suite = 'diamonds;
         } else if (indicator == 1) 
