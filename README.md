@@ -6,9 +6,9 @@ While exploring the ecosystem and connecting with the developers of ViteX, we ca
 So we came up with an idea to utilize this learning into a game application where we just start with the basic guess the game. This game will be a Game platform where we can series of different games, currently we intend to card a number of card games. 
 
 # Overview of our Game
-To begin the game, user logs in using the valid wallet ID and will have a set of random shuffled playing cards from which they would need to guess the correct next card based on the questions/conditions. The user can bid any value greater than zero. 
+To begin the game, user logs in using the valid wallet ID and will have a set of random shuffled playing cards from which they would need to guess the correct next card based on the questions/conditions. The user can bid any value greater than zero.
 
-The user will earn money based on the amount they will bid. So if the user is bidding 1 ETH . They would earn 1 for first question, 2 for Second, 3 for third and so on. They would only receive winnings once they have answered all the questions correctly. 
+The user will earn money based on the amount they will bid. So if the user is bidding 1 ETH . They would earn 1 for first question, 2 for Second, 3 for third and so on. They would only receive winnings once they have answered the 4th question, if not all winnings are lost. In other words, the first 3 questions generate winnings and the fourth pays them out.
 
 #### Sample Questions - 
 1. Player has to guess the color of the first card. 
