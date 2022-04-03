@@ -58,8 +58,7 @@ contract CardGameDevelopment is ReentrancyGuard {
         Card[] memory prevCards = new Card[](4); 
         Player memory newPlayer = Player( _bid, GameState.ONE, 0, deck, prevCards);
         playerAccounts[msg.sender] = newPlayer;
-    
-        console.log("Got here");
+
         emit AskQuestion(firstQuestion);
     }
 
