@@ -83,7 +83,9 @@ contract cardgame is ReentrancyGuard {
 
 
         // }
-
+        
+        
+        //the answrer is hard codded for testing purposes
           if (keccak256(abi.encodePacked((colorGuess))) == keccak256(abi.encodePacked(("red")))) 
         {
            winnings += 1;
@@ -102,6 +104,16 @@ contract cardgame is ReentrancyGuard {
         require(keccak256(abi.encodePacked((overUnder))) == keccak256(abi.encodePacked(("over")))
         || keccak256(abi.encodePacked((overUnder))) == keccak256(abi.encodePacked(("under"))));
         
+        //the answrer is hard codded for testing purposes
+         if (keccak256(abi.encodePacked((overUnder))) == keccak256(abi.encodePacked(("over")))) 
+        {
+           winnings += 1;
+           console.log ('Correct answer, proceed to the next question');
+        } 
+        else {
+            console.log ('Wrong answer!');
+        }
+        
 
     }
 
@@ -113,6 +125,17 @@ contract cardgame is ReentrancyGuard {
 
         require(keccak256(abi.encodePacked((boolGuess))) == keccak256(abi.encodePacked(("yes")))
         || keccak256(abi.encodePacked((boolGuess))) == keccak256(abi.encodePacked(("no"))));
+        
+        
+        //the answrer is hard codded for testing purposes
+        if (keccak256(abi.encodePacked((boolGuess))) == keccak256(abi.encodePacked(("yes")))) 
+        {
+           winnings += 1;
+           console.log ('Correct answer, proceed to the next question');
+        } 
+        else {
+            console.log ('Wrong answer!');
+        }
 
     }
 
