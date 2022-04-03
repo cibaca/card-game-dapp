@@ -20,7 +20,7 @@ This application will have an option of add based by creating different smart co
 
 # Tech Stack
 1. Solidity - We are using Solidity for developing smart contracts for deck of 52 cards as well the Guess the Card game. 
-3. Arbitrum One - Platform where we will deploy pour application as it had quiet low fee compared to other platforms
+3. Arbitrum One - Platform where we will deploy our application as it had quiet low fee compared to other platforms
 4. RemiX - IDE for developing and testing our smart contracts. 
 5. Integrations - We are still researching on what would be the most appropriate tech for building UI and if we could integrate with something like Pygame
 
