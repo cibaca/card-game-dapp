@@ -84,9 +84,13 @@ contract cardgame is ReentrancyGuard {
 
         // }
 
-        if (keccak256(abi.encodePacked((colorGuess))) == keccak256(abi.encodePacked(("red")))) 
+          if (keccak256(abi.encodePacked((colorGuess))) == keccak256(abi.encodePacked(("red")))) 
         {
-           player.winnings += 1;
+           winnings += 1;
+           console.log ('Correct!');
+        } 
+        else {
+            console.log ('Wrong answer!');
         }
     }
 
