@@ -69,6 +69,50 @@ contract cardgame is ReentrancyGuard {
     
         emit QuestionOne(firstQuestion);
     }
+    
+    // Global variables for random card generated
+    string rank;
+    uint suite;
+    string color;
+    
+    //Random number generators
+    function randomValue() {
+        uint randomHash = uint(keccak256(abi.encodePacked(block.timestamp)));
+        uint indicator = randomHash%13;
+        if (indicator < 11) {
+            suite = (string) indicator;
+        } else if (indicator == 11)
+            suite = 'J';
+        } else if (indicator == 12) 
+            suite = 'Q';
+        } else if (indicator == 13)
+            suite = 'K';
+        } else {
+            suite = 'A';
+        }
+    } 
+
+    function randomSuite()  {
+        uint randomHash = uint(keccak256(abi.encodePacked(block.timestamp)));
+        uint indicator = randomHash%4;
+        if (indicator == 0) {
+            suite = 'diamonds;
+        } else if (indicator == 1) 
+            suite = 'spades';
+        } else if (indicator == 2)
+            suite = 'hearts';
+        } else {
+            suite = 'clubs';
+        }
+    } 
+
+    function randomColor() {
+        if (suite == 1 || suite == 2) {
+             color == 'red';
+        } else {
+            color == 'black';
+        }
+    }
 
 
     // Function for verifying the answer for quesiton one.
