@@ -130,13 +130,15 @@ contract cardgame is ReentrancyGuard {
         
         
         //the answrer is hard codded for testing purposes
-          if (keccak256(abi.encodePacked((colorGuess))) == keccak256(abi.encodePacked(("red")))) 
+            if (keccak256(abi.encodePacked((colorGuess))) == keccak256(abi.encodePacked(("red")))) 
         {
            winnings += 1;
-           console.log ('Correct!');
+           console.log ('Correct answer, you earned +1, now your total winning is: ', winnings, 
+           ', proceed to the next question');
         } 
         else {
             console.log ('Wrong answer!');
+            winnings += 0;
         }
     }
 
@@ -149,13 +151,15 @@ contract cardgame is ReentrancyGuard {
         || keccak256(abi.encodePacked((overUnder))) == keccak256(abi.encodePacked(("under"))));
         
         //the answrer is hard codded for testing purposes
-         if (keccak256(abi.encodePacked((overUnder))) == keccak256(abi.encodePacked(("over")))) 
+           if (keccak256(abi.encodePacked((overUnder))) == keccak256(abi.encodePacked(("over")))) 
         {
            winnings += 1;
-           console.log ('Correct answer, proceed to the next question');
+           console.log ('Correct answer, you earned +1, now your total winning is: ', winnings, 
+           ', proceed to the next question');
         } 
         else {
             console.log ('Wrong answer!');
+            winnings += 0;
         }
         
 
@@ -170,13 +174,15 @@ contract cardgame is ReentrancyGuard {
         require(keccak256(abi.encodePacked((boolGuess))) == keccak256(abi.encodePacked((true)))
         || keccak256(abi.encodePacked((boolGuess))) == keccak256(abi.encodePacked((false))));
 
-         if (keccak256(abi.encodePacked((boolGuess))) == keccak256(abi.encodePacked((true)))) 
+          if (keccak256(abi.encodePacked((boolGuess))) == keccak256(abi.encodePacked(("true")))) 
         {
            winnings += 1;
-           console.log ('Correct answer, proceed to the next question');
+           console.log ('Correct answer, you earned +1, now your total winning is: ', winnings, 
+           ', proceed to the next question');
         } 
         else {
             console.log ('Wrong answer!');
+            winnings += 0;
         }
 
     }
@@ -190,6 +196,16 @@ contract cardgame is ReentrancyGuard {
         || keccak256(abi.encodePacked((suiteGuess))) == keccak256(abi.encodePacked(("heart")))
         );    
     }
+      if (keccak256(abi.encodePacked((suiteGuess))) == keccak256(abi.encodePacked(("diamond")))) 
+        {
+           winnings += 1;
+           console.log ('Correct answer, you earned +1, now your total winning is: ', winnings, 
+           ', proceed to the next question');
+        } 
+        else {
+            console.log ('Wrong answer!');
+            winnings += 0;
+        }
 
 
 
